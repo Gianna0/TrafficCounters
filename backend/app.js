@@ -2,7 +2,6 @@ const http = require('http');
 const express = require('express');
 const app = express();
 require('dotenv').config();
-
 //const connection = require('./dbConnection');
 
 app.get('/', function(req, res) {

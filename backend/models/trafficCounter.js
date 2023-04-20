@@ -1,12 +1,14 @@
 class TrafficCounter {
-  constructor(id, location, vehicleCount, averageSpeed, overSpeedLimit) {
+  constructor(id, name, limitSpeed, location, country, city, street, deleted) {
     this.id = id;
+    this.name = name;
+    this.limitSpeed = limitSpeed;
     this.location = location;
-    this.vehicleCount = vehicleCount;
-    this.averageSpeed = averageSpeed;
-    this.overSpeedLimit = overSpeedLimit;
+    this.country = country;
+    this.city = city;
+    this.street = street;
+    this.deleted = deleted;
   }
 } 
 
 module.exports = TrafficCounter;
-  

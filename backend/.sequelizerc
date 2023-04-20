@@ -1,0 +1,19 @@
+const path = require('path');
+require('dotenv').config();
+
+const mysql = require('mysql2/promise');
+mysql.createConnection({
+    user     : process.env.DATABASE_USER,
+    password : process.env.DATABASE_PASSWORD
+}).then((connection) => {
+    connection.query(`CREATE DATABASE IF NOT EXISTS ${process.env.DATABASE_NAME};`);
+}).catch((err) => {
+    throw err;
+});
+
+module.exports = {
+  'config': path.resolve('./configMigration.js'),
+  'models-path': path.resolve('./models'),
+  'seeders-path': path.resolve('./seeders'),
+  'migrations-path': path.resolve('./migrations')
+};
