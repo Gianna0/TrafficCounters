@@ -13,7 +13,8 @@ app.use(cors());
 
 // endpoints
 app.get('/', function(req, res) {
-    res.send('Hello World');
+    const welcomeText = 'Welcome to Traffic Counters!';
+    res.send({ text: welcomeText });
 });
 app.get('/api/speedometers/:id', async function(req, res) {
     try {
@@ -127,7 +128,7 @@ console.debug('Server listening on port ' + port);
 
 const SimulateReceivedData = require('./simulateReceivedData');
 // Wywołanie funkcji generującej dane co 1 sekundę
-setInterval(SimulateReceivedData.simulateReceivedStateData, 1000);
+//setInterval(SimulateReceivedData.simulateReceivedStateData, 1000);
 
 // Wywołanie funkcji generującej dane co 1 minutę
-setInterval(SimulateReceivedData.simulateReceivedMeasurementData, 1000 * 60);
+//setInterval(SimulateReceivedData.simulateReceivedMeasurementData, 1000 * 60);
