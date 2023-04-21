@@ -118,6 +118,22 @@ app.get('/api/speedometers/:id/states', async function(req, res) {
         }
     }
 });
+app.get('/api/speedometers', async function(req, res) {
+    try {
+        const connection = require('./dbConnection');
+        const SpeedometerController = require('./controllers/speedometerController.js');
+        const speedometerController = SpeedometerController.createSpeedometerController(connection);
+        res.send(await speedometerController.getAllTrafficCounters());
+    }
+    catch(err) {
+        console.error(err);
+        if (err instanceof MyError) {
+                res.status(400).send(err.message);
+        } else {
+            res.status(500).send('Wystąpił błąd');
+        }
+    }
+});
 
 
 const server = http.createServer(app);

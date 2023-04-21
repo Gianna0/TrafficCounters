@@ -55,6 +55,15 @@ class SpeedometerController {
         console.log(traffic);
         return traffic;
     }
+
+    async getAllTrafficCounters() {
+        const [rows] = await this.dbConnection.promise().query('SELECT id, name, limit_speed, location, country, city, street, deleted FROM traffic_counters');
+        const trafficCounters = [];
+        for (const row of rows) {
+            trafficCounters.push(new TrafficCounter(row.id, row.name, row.limit_speed, row.location, row.country, row.city, row.street, row.deleted));
+        }
+        return trafficCounters;
+    }
 }
 
 function createSpeedometerController(dbConnection) {

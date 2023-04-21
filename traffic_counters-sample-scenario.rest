@@ -37,3 +37,6 @@ GET {{api}}/speedometers/1/measurements
 
 ### GET latest speedometer state
 GET {{api}}/speedometers/1/states
+
+### GET speedometers
+GET {{api}}/speedometers
