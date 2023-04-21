@@ -13,3 +13,10 @@ const port = 3000;
 server.listen(port);
 
 console.debug('Server listening on port ' + port);
+
+const SimulateReceivedData = require('./simulateReceivedData')
+// Wywołanie funkcji generującej dane co 1 sekundę
+setInterval(SimulateReceivedData.simulateReceivedStateData, 1000);
+
+// Wywołanie funkcji generującej dane co 1 minutę
+setInterval(SimulateReceivedData.simulateReceivedMeasurementData, 1000 * 60);

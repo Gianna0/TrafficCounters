@@ -1,5 +1,3 @@
-require('dotenv').config();
-
 module.exports = {
     up: async (queryInterface, Sequelize) => {
         await queryInterface.createTable('traffic_counters', {
@@ -80,7 +78,7 @@ module.exports = {
           created_at: {
             type: Sequelize.DATE,
             allowNull: false,
-            defaultValue: Sequelize.NOW
+            defaultValue: Sequelize.literal('CURRENT_TIMESTAMP')
           }
         });
         await queryInterface.createTable('traffic_counter_states', {

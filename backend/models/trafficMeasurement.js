@@ -1,4 +1,4 @@
-class TrafficMeasurements {
+class TrafficMeasurement {
     constructor(id, trafficCounterId, vehiclesCount, averageSpeed, overSpeedLimitCount, createdAt) {
         this.id = id;
         this.trafficCounterId = trafficCounterId;
@@ -9,4 +9,4 @@ class TrafficMeasurements {
     }
 }
 
-module.exports = TrafficMeasurements;
+module.exports = TrafficMeasurement;
