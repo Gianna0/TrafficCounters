@@ -31,3 +31,9 @@ Content-Type: application/json
 
 ### DELETE speedometer
 DELETE {{api}}/speedometers/1
+
+### GET latest speedometer measurement
+GET {{api}}/speedometers/1/measurements
+
+### GET latest speedometer state
+GET {{api}}/speedometers/1/states

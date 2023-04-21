@@ -86,6 +86,35 @@ app.put('/api/speedometers/:id', async function(req, res) {
     }
 });
 
+app.get('/api/speedometers/:id/measurements', async function(req, res) {
+    try {
+        const connection = require('./dbConnection');
+        const SpeedometerMeasurementController = require('./controllers/speedometerMeasurementController.js');
+        const speedometerMeasurementController = SpeedometerMeasurementController.createSpeedometerMeasurementController(connection);
+        const measurement = await speedometerMeasurementController.getSpeedometerCurrentMeasurement(req.params.id)
+        res.send(measurement);
+    } catch(err) {
+
+    }
+});
+
+app.get('/api/speedometers/:id/states', async function(req, res) {
+    try {
+        const connection = require('./dbConnection');
+        const SpeedometerStateController = require('./controllers/speedometerStateController');
+        const speedometerStateController = SpeedometerStateController.createSpeedometerStateController(connection);
+        const state = await speedometerStateController.getSpeedometerCurrentState(req.params.id)
+        res.send(state);
+    } catch(err) {
+        console.error(err);
+        if (err instanceof MyError) {
+                res.status(400).send(err.message);
+        } else {
+            res.status(500).send('Wystąpił błąd');
+        }
+    }
+});
+
 
 const server = http.createServer(app);
 const port = 3000;
