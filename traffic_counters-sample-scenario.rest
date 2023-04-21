@@ -1,0 +1,33 @@
+@api = http://localhost:3000/api
+
+### GET speedometer
+GET {{api}}/speedometers/1
+
+### ADD speedometer
+POST {{api}}/speedometers
+Content-Type: application/json
+
+{
+    "name": "Speedometer 1",
+    "limitSpeed": 50,
+    "location": "POINT(50.0 50.0)",
+    "country": "Poland",
+    "city": "Warsaw",
+    "street": "Koszykowa"
+}
+
+### UPDATE speedometer
+PUT {{api}}/speedometers/1
+Content-Type: application/json
+
+{
+    "name": "Speedometer 1",
+    "limitSpeed": 50,
+    "location": "POINT(50.0 50.0)",
+    "country": "Poland",
+    "city": "Warsaw",
+    "street": "Koszykowa"
+}
+
+### DELETE speedometer
+DELETE {{api}}/speedometers/1
