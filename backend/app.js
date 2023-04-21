@@ -3,10 +3,13 @@ const express = require('express');
 require('dotenv').config();
 const bodyParser = require('body-parser');
 const app = express();
+const cors = require('cors');
 const MyError = require('./errors/MyError');
 
 // middlewares
 app.use(bodyParser.json());
+// Umożliwia przeslanie zasobów między backend a frontend
+app.use(cors());
 
 // endpoints
 app.get('/', function(req, res) {
