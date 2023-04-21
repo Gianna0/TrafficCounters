@@ -34,12 +34,13 @@ To run this application, follow these steps:
 3. Start the server by running ```npm start```
 4. Install ```npm install -g sequelize-cli```
 5. Migrate schema  ```sequelize db:migrate```
-6. Run application npm run dev
+6. Run application ```npm run dev```
 7. Navigate to http://localhost:3000 in your web browser to view the application
 
 Frontend
 1. Install dependencies by running ```npm install```
 2. Start the server by running ```ng serve```
+3. Navigate to http://localhost:4200 in your web browser to view the application
 
 ### Usage
 
